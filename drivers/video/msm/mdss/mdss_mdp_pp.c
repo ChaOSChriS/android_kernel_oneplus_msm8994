@@ -20,8 +20,13 @@
 #include <linux/uaccess.h>
 #include <linux/spinlock.h>
 #include <linux/delay.h>
+<<<<<<< HEAD
 #include <linux/msm-bus.h>
 #include <linux/msm-bus-board.h>
+=======
+#include <mach/msm_bus.h>
+#include <mach/msm_bus_board.h>
+>>>>>>> 6e5d7e7... msm: mdss: Keep KCAL within its own source file
 
 struct mdp_csc_cfg mdp_csc_convert[MDSS_MDP_MAX_CSC] = {
 	[MDSS_MDP_CSC_RGB2RGB] = {
@@ -435,6 +440,7 @@ static void pp_ad_bypass_config(struct mdss_ad_info *ad,
 				struct mdss_mdp_ctl *ctl, u32 num, u32 *opmode);
 static int mdss_mdp_ad_setup(struct msm_fb_data_type *mfd);
 static void pp_ad_cfg_lut(char __iomem *addr, u32 *data);
+
 static int pp_ad_attenuate_bl(struct mdss_ad_info *ad, u32 bl, u32 *bl_out);
 static int pp_ad_linearize_bl(struct mdss_ad_info *ad, u32 bl, u32 *bl_out,
 		int inv);
@@ -443,7 +449,6 @@ static int pp_ad_calc_bl(struct msm_fb_data_type *mfd, int bl_in, int *bl_out,
 static int pp_ad_shutdown_cleanup(struct msm_fb_data_type *mfd);
 
 static struct msm_fb_data_type *mdss_get_mfd_from_index(int index);
-
 
 static int pp_num_to_side(struct mdss_mdp_ctl *ctl, u32 num);
 static inline bool pp_sts_is_enabled(u32 sts, int side);
@@ -2049,6 +2054,7 @@ int mdss_mdp_pp_resume(struct mdss_mdp_ctl *ctl, u32 dspp_num)
 	}
 
 	mdss_pp_res->pp_disp_flags[disp_num] |= flags;
+<<<<<<< HEAD
 	mdss_pp_res->pp_disp_flags[disp_num] |= PP_FLAGS_RESUME_COMMIT;
 
 	if (dspp_num < mdata->nad_cfgs) {
@@ -2088,6 +2094,8 @@ int mdss_mdp_pp_resume(struct mdss_mdp_ctl *ctl, u32 dspp_num)
 		mutex_unlock(&ad->lock);
 	}
 
+=======
+>>>>>>> 6e5d7e7... msm: mdss: Keep KCAL within its own source file
 	return 0;
 }
 
