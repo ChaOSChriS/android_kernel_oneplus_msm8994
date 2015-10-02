@@ -171,7 +171,6 @@ echo -e "   $blue## [BUILD]$nocol: INFO: creating output folders...$nocolor"
 echo -e ""
 sleep 1
 
-mkdir -p $OUTDIR/$CODENAME
 mkdir -p $OUTDIR/zImage
 mkdir -p $OUTDIR/modules
 
@@ -197,9 +196,9 @@ BUILD_END=$(date +"%s")
 DIFF=$(($BUILD_END - $BUILD_START)) 
 rm "$CD_DIR/lastrun" 
 echo $DIFF >> "$CD_DIR/lastrun" 
-#echo -e "   $blue## [BUILD]$green: INFO: Finished in $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) seconds! =) $nocolor"
+echo -e "   $blue## [BUILD]$green: INFO: Finished in $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) seconds! =) $nocolor"
 #cp $TMPLOG $LOGFILE
 ) 2>&1 | tee "$(pwd)/tmp_build.log"
-cp "$(pwd)/tmp_build.log" "$CD_DIR/$PROJECT.$VERSION.$BUILDNR.log"
-read -p "   $blue## [BUILD]$green: INFO: Finished in $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) seconds! =) $nocolor"
+cat "$(pwd)/tmp_build.log" > $(pwd)/../_chaosdroid/out/plutonium/stock-enhancement_"$CODENAME"_"$REV"_"$VERSION"_"$BUILDNR"_"$DATE".log
+read -p "Press a key to Exit"
 exit 0
