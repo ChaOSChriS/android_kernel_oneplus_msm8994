@@ -2054,7 +2054,6 @@ int mdss_mdp_pp_resume(struct mdss_mdp_ctl *ctl, u32 dspp_num)
 	}
 
 	mdss_pp_res->pp_disp_flags[disp_num] |= flags;
-<<<<<<< HEAD
 	mdss_pp_res->pp_disp_flags[disp_num] |= PP_FLAGS_RESUME_COMMIT;
 
 	if (dspp_num < mdata->nad_cfgs) {
@@ -2094,8 +2093,7 @@ int mdss_mdp_pp_resume(struct mdss_mdp_ctl *ctl, u32 dspp_num)
 		mutex_unlock(&ad->lock);
 	}
 
-=======
->>>>>>> 6e5d7e7... msm: mdss: Keep KCAL within its own source file
+
 	return 0;
 }
 
