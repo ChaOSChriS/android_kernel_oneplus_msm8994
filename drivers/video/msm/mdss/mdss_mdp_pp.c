@@ -20,13 +20,9 @@
 #include <linux/uaccess.h>
 #include <linux/spinlock.h>
 #include <linux/delay.h>
-<<<<<<< HEAD
 #include <linux/msm-bus.h>
 #include <linux/msm-bus-board.h>
-=======
-#include <mach/msm_bus.h>
-#include <mach/msm_bus_board.h>
->>>>>>> 6e5d7e7... msm: mdss: Keep KCAL within its own source file
+
 
 struct mdp_csc_cfg mdp_csc_convert[MDSS_MDP_MAX_CSC] = {
 	[MDSS_MDP_CSC_RGB2RGB] = {
